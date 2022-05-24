@@ -18,7 +18,6 @@ class _AuthViewState extends State<AuthView> {
     double height = MediaQuery.of(context).size.height;
     TextTheme textTheme = Theme.of(context).textTheme;
 
-    const animationDuration = Duration(milliseconds: 500);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -30,14 +29,12 @@ class _AuthViewState extends State<AuthView> {
               children: [
                 Logo(height: height),
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isLive = !isLive;
-                    });
-                  },
-                  child: AnimatedToggleButton(
-                      animationDuration: animationDuration, isEnabled: isLive),
-                ),
+                    onTap: () {
+                      setState(() {
+                        isLive = !isLive;
+                      });
+                    },
+                    child: const AnimatedToggleButton()),
                 SizedBox(
                   height: height * 0.04,
                 ),
@@ -48,7 +45,8 @@ class _AuthViewState extends State<AuthView> {
                       )
                     : Text(
                         'Practise with paper trading',
-                        style: textTheme.headline2?.copyWith(color: kBlackColor),
+                        style:
+                            textTheme.headline2?.copyWith(color: kBlackColor),
                       ),
                 SizedBox(
                   height: height * 0.04,

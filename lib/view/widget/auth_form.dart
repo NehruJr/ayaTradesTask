@@ -116,15 +116,15 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(2.0),
+      padding: const EdgeInsets.all(2.0),
       decoration: BoxDecoration(
         color: kGreyColor,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey[400]!.withOpacity(0.2),
             spreadRadius: 2,
-            blurRadius: 3,
+            blurRadius: 4,
             offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
