@@ -44,11 +44,12 @@ class AuthForm extends StatelessWidget {
               Validator().password(value);
             },
             obscureText: true,
-            sufIcon:  Image.asset('assets/images/ant-design_eye-invisible-outlined.png'),
+            sufIcon: Image.asset(
+                'assets/images/ant-design_eye-invisible-outlined.png'),
             textTheme: textTheme,
           ),
           SizedBox(
-            height: height * 0.02,
+            height: height * 0.01,
           ),
           isLive
               ? TextButton(
@@ -104,7 +105,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     required this.validate,
     required this.obscureText,
-    required this.sufIcon, required this.textTheme,
+    required this.sufIcon,
+    required this.textTheme,
   }) : super(key: key);
 
   final String hintText;
@@ -132,7 +134,8 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle:textTheme.bodyText1?.copyWith(color: const Color(0xff969696)),
+          hintStyle:
+              textTheme.bodyText1?.copyWith(color: const Color(0xff969696)),
           suffixIcon: sufIcon,
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
