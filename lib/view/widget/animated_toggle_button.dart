@@ -18,44 +18,35 @@ class AnimatedToggleButton extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return Container(
-      height: height * 0.06,
-      width: width * 0.9,
+      height: height * 0.07,
+      width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: kGreyColor,
+        borderRadius: BorderRadius.circular(12.0),
+        color: kLightGreyColor,
         border: Border.all(color: Colors.white, width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade400,
-            spreadRadius: 2,
-            blurRadius: 10,
-          ),
-        ],
       ),
       child: AnimatedAlign(
         duration: animationDuration,
         alignment: isEnabled ? Alignment.centerLeft : Alignment.centerRight,
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Row(
-            children: [
-              BuildToggleChoiceContainer(
-                width: width,
-                height: height,
-                isEnabled: isEnabled,
-                textTheme: textTheme,
-                choiceText: 'Live',
-              ),
-              BuildToggleChoiceContainer(
-                width: width,
-                height: height,
-                isEnabled: !isEnabled,
-                textTheme: textTheme,
-                choiceText: 'Paper Trading',
-              )
-            ],
-          ),
-        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BuildToggleChoiceContainer(
+              width: width,
+              height: height,
+              isEnabled: isEnabled,
+              textTheme: textTheme,
+              choiceText: 'Live',
+            ),
+            BuildToggleChoiceContainer(
+              width: width,
+              height: height,
+              isEnabled: !isEnabled,
+              textTheme: textTheme,
+              choiceText: 'Paper Trading',
+            )
+          ],
+        )
       ),
     );
   }
@@ -79,22 +70,23 @@ class BuildToggleChoiceContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const animationDuration = Duration(milliseconds: 500);
 
     return AnimatedContainer(
-      duration: animationDuration,
-      curve: Curves.linear,
-      width: width * 0.4,
-      height: height * 0.05,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.0),
-          color: isEnabled ? kDarkGreenColor : kGreyColor),
-      child: Center(
-          child: Text(
-        choiceText,
-        style: textTheme.headline2
-            ?.copyWith(color: isEnabled ? Colors.white : kDarkGreenColor),
-      )),
+      duration: Duration(milliseconds: 500),
+      curve: Curves.bounceIn,
+      child: Container(
+        width: (width - 50) / 2,
+        height: height * 0.05,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            color: isEnabled ? kGreenColor : kLightGreyColor),
+        child: Center(
+            child: Text(
+          choiceText,
+          style: textTheme.headline2
+              ?.copyWith(color: isEnabled ? Colors.white : kGreenColor),
+        )),
+      ),
     );
   }
 }

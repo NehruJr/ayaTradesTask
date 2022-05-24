@@ -32,18 +32,20 @@ class AuthForm extends StatelessWidget {
             },
             obscureText: false,
             sufIcon: const SizedBox(),
+            textTheme: textTheme,
           ),
           SizedBox(
             height: height * 0.02,
           ),
           CustomTextFormField(
-            hintText: 'password',
+            hintText: 'Password',
             controller: _passwordController,
             validate: (value) {
               Validator().password(value);
             },
             obscureText: true,
-            sufIcon: const Icon(Icons.remove_red_eye_outlined),
+            sufIcon:  Image.asset('assets/images/ant-design_eye-invisible-outlined.png'),
+            textTheme: textTheme,
           ),
           SizedBox(
             height: height * 0.02,
@@ -63,7 +65,7 @@ class AuthForm extends StatelessWidget {
             alignment: Alignment.center,
             child: Container(
               width: width * 0.3,
-              height: height * 0.05,
+              height: height * 0.06,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -102,7 +104,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     required this.validate,
     required this.obscureText,
-    required this.sufIcon,
+    required this.sufIcon, required this.textTheme,
   }) : super(key: key);
 
   final String hintText;
@@ -110,17 +112,19 @@ class CustomTextFormField extends StatelessWidget {
   final Function validate;
   final bool obscureText;
   final Widget sufIcon;
+  final TextTheme textTheme;
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(2.0),
       decoration: BoxDecoration(
         color: kGreyColor,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 2,
-            blurRadius: 5,
+            blurRadius: 3,
             offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
@@ -128,6 +132,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         decoration: InputDecoration(
           hintText: hintText,
+          hintStyle:textTheme.bodyText1?.copyWith(color: const Color(0xff969696)),
           suffixIcon: sufIcon,
           border: InputBorder.none,
           focusedBorder: InputBorder.none,

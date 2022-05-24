@@ -8,7 +8,7 @@ class AuthTheme {
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.white,
       colorScheme: const ColorScheme.light(
-        primary: kDarkGreenColor,
+        primary: kGreenColor,
         onPrimary: Colors.white,
       ),
       textTheme: appTextTheme,
@@ -19,12 +19,12 @@ class AuthTheme {
     headline1: GoogleFonts.lato(
       fontSize: 18,
       fontWeight: FontWeight.normal,
-      color: kDarkGreenColor,
+      color: kGreenColor,
     ),
     headline2: GoogleFonts.lato(
       fontSize: 16,
       fontWeight: FontWeight.normal,
-      color: kDarkGreenColor,
+      color: kGreenColor,
     ),
     headline3: const TextStyle(
       fontFamily: 'Roboto',
@@ -36,7 +36,7 @@ class AuthTheme {
       fontFamily: 'Montserrat',
       fontSize: 12,
       fontWeight: FontWeight.normal,
-      color: kDarkGreenColor,
+      color: kGreenColor,
     ),
   );
 }
